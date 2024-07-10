@@ -71,44 +71,45 @@ const JournalTracker = () => {
 
   return (
     <div className="p-6 bg-background-blue">
-      {student ? (
-        <div className="bg-white shadow-md rounded p-4 mb-6">
-          <h2 className="text-xl font-bold mb-4">Student Information</h2>
-          <p><strong>Name:</strong> {student.name}</p>
-          <p><strong>Semester:</strong> {student.semester}</p>
-        </div>
-      ) : (
-        <p>Loading student information...</p>
-      )}
-
-      <div className="bg-white shadow-md rounded p-4">
-        <h2 className="text-xl font-bold mb-4">Upload Journal</h2>
-        <form onSubmit={handleFileUpload}>
-          <input type="file" onChange={handleFileChange} />
-          <button type="submit" className="bg-blue-900 text-white p-2 rounded mt-2">
-            Upload
-          </button>
-        </form>
-        {message && <p>{message}</p>}
+    {student ? (
+      <div className="bg-white shadow-md rounded p-4 mb-6">
+        <h2 className="text-xl font-bold mb-4">Student Information</h2>
+        <p><strong>Name:</strong> {student.name}</p>
+        <p><strong>Semester:</strong> {student.semester}</p>
       </div>
-
-      <div className="bg-white shadow-md rounded p-4 mt-6">
-        <h2 className="text-xl font-bold mb-4">Uploaded Journals</h2>
-        {journals.length > 0 ? (
-          <ul>
-            {journals.map((journal, index) => (
-              <li key={index}>
-                <a href={journal.url} download={journal.name} className="text-blue-500 hover:underline">
-                  {journal.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No journals uploaded yet.</p>
-        )}
-      </div>
+    ) : (
+      <p>Loading student information...</p>
+    )}
+  
+    <div className="bg-white shadow-md rounded p-4">
+      <h2 className="text-xl font-bold mb-4">Upload Journal</h2>
+      <form onSubmit={handleFileUpload}>
+        <input type="file" onChange={handleFileChange} className="mb-2" />
+        <button type="submit" className="bg-button-blue text-white px-4 py-2 rounded mt-2 hover:bg-opacity-75">
+          Upload
+        </button>
+      </form>
+      {message && <p>{message}</p>}
     </div>
+  
+    <div className="bg-white shadow-md rounded p-4 mt-6">
+      <h2 className="text-xl font-bold mb-4">Uploaded Journals</h2>
+      {journals.length > 0 ? (
+        <ul>
+          {journals.map((journal, index) => (
+            <li key={index}>
+              <a href={journal.url} download={journal.name} className="text-blue-500 hover:underline">
+                {journal.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No journals uploaded yet.</p>
+      )}
+    </div>
+  </div>
+  
   );
 };
 

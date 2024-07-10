@@ -93,7 +93,39 @@ createServer({
         hobbies: 'Gaming, Traveling',
         address: '1324 East St, Yetanothertown, IN'
       }
-    ];let journals = [];
+    ];
+    
+    let projectRatings = [
+      { projectName: 'Inhouse project', studentName: 'shai', rating: 4.5, comments: 'Good work' },
+      { projectName: 'Inhouse project', studentName: 'moulya', rating: 4.5, comments: 'Good work' },
+      { projectName: 'Inhouse project', studentName: 'swaroop', rating: 4.5, comments: 'Good work' },
+      { projectName: 'Inhouse project', studentName: 'pratham', rating: 4.5, comments: 'Good work' },
+      { projectName: 'Inhouse project', studentName: 'ishra', rating: 4.5, comments: 'Good work' },
+    ];
+
+    let attendance = [
+      { date: '01/07/2024', daysPresent: 1, totalDays: 1, attendancePercent: '100%' },
+      { date: '08/07/2024', daysPresent: 1, totalDays: 1, attendancePercent: '100%' },
+      { date: '15/07/2024', daysPresent: 1, totalDays: 1, attendancePercent: '100%' },
+    ];
+
+    let weeklyMeetings = [
+      { date: '2024-06-01', topic: 'Introduction', attendees: 'All team members', notes: 'Kick-off meeting' },
+      { date: '2024-06-02', topic: 'Requirements', attendees: 'All team members', notes: 'Discuss project requirements' },
+      { date: '2024-06-03', topic: 'Design', attendees: 'All team members', notes: 'Design phase discussions' },
+      { date: '2024-06-04', topic: 'Development', attendees: 'All team members', notes: 'Development updates' },
+      { date: '2024-06-05', topic: 'Testing', attendees: 'All team members', notes: 'Testing phase progress' }
+    ];
+
+    let teamInformation = [
+      { name: 'Shai', usn: '21BTRIS040' },
+      { name: 'Moulya R', usn: '21BTRIS022' },
+      { name: 'Swaroop', usn: '21BTRIS034' },
+      { name: 'Ishra', usn: '21BTRIS016' },
+      { name: 'Pratham', usn: '21BTRIS028' }
+    ];
+
+    let journals = [];
 
     this.post('/login', (schema, request) => {
       let attrs = JSON.parse(request.requestBody);
@@ -184,6 +216,23 @@ createServer({
       } else {
         return new Response(401, {}, { error: 'Unauthorized' });
       }
+    });
+
+
+    this.get('/project-ratings', () => {
+      return projectRatings;
+    });
+
+    this.get('/attendance', () => {
+      return attendance;
+    });
+
+    this.get('/weekly-meetings', () => {
+      return weeklyMeetings;
+    });
+
+    this.get('/team-information', () => {
+      return teamInformation;
     });
   },
 });
