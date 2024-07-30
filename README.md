@@ -1,6 +1,6 @@
 # *UMS Tracker* :white_check_mark:
 UMS Tracker is a web application designed to assist students in managing and tracking their journals. It provides a platform for students to upload their journals for review by their guides.
-
+Link: https://jain-ums-td-tracker.vercel.app/ demo id-21BTRIS040, password:shai
 ## **Purpose**
 The application aims to streamline the journal management process for students by offering functionalities to upload journals and facilitate the review process with their guides.
 
